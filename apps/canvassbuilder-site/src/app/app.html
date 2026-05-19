@@ -1,0 +1,46 @@
+<header class="site-header">
+  <a routerLink="/" class="brand" aria-label="Canvass Builder home">
+    <img src="/assets/logo_400x75.svg" alt="Canvass Builder" />
+  </a>
+
+  <button
+    class="menu-toggle"
+    type="button"
+    aria-label="Toggle navigation"
+    [attr.aria-expanded]="menuOpen()"
+    (click)="menuOpen.set(!menuOpen())"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <nav class="nav-links" [class.open]="menuOpen()" aria-label="Primary navigation">
+    @for (link of navLinks; track link.href) {
+      <a
+        [routerLink]="link.href"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: link.href === '/' }"
+        (click)="menuOpen.set(false)"
+      >
+        {{ link.label }}
+      </a>
+    }
+    <a class="nav-cta" [href]="ctas.trialUrl">Start Free Trial</a>
+  </nav>
+</header>
+
+<router-outlet></router-outlet>
+
+<footer class="site-footer">
+  <div>
+    <img src="/assets/logo_400x75.svg" alt="Canvass Builder" />
+    <p>Turf cutting, canvassing, and field reporting software for teams built to move.</p>
+  </div>
+  <nav aria-label="Footer navigation">
+    @for (link of navLinks; track link.href) {
+      <a [routerLink]="link.href">{{ link.label }}</a>
+    }
+  </nav>
+  <p class="fine-print">© 2026 Canvass Builder. All rights reserved.</p>
+</footer>

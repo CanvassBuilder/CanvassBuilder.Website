@@ -1,0 +1,136 @@
+:host {
+  display: block;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 4.75rem;
+  padding: 0.85rem clamp(1rem, 4vw, 4rem);
+  border-bottom: 1px solid var(--line);
+  background: rgba(6, 8, 22, 0.86);
+  backdrop-filter: blur(18px);
+}
+
+.brand img,
+.site-footer img {
+  display: block;
+  width: min(15rem, 58vw);
+  height: auto;
+  filter: brightness(0) invert(1);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.nav-links a {
+  min-height: 2.65rem;
+  padding: 0.72rem 0.9rem;
+  border-radius: 0.5rem;
+  color: var(--muted);
+  font-weight: 700;
+  font-size: 0.94rem;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.nav-links .nav-cta {
+  margin-left: 0.35rem;
+  color: #06111d;
+  background: linear-gradient(135deg, var(--accent), var(--green));
+}
+
+.menu-toggle {
+  display: none;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.menu-toggle span {
+  display: block;
+  width: 1.25rem;
+  height: 2px;
+  margin: 0.27rem auto;
+  background: var(--text);
+}
+
+.site-footer {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr auto;
+  gap: 2rem;
+  padding: 3rem clamp(1rem, 4vw, 4rem);
+  border-top: 1px solid var(--line);
+  background: #050711;
+}
+
+.site-footer p {
+  max-width: 30rem;
+  color: var(--muted);
+}
+
+.site-footer nav {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.site-footer nav a {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.fine-print {
+  align-self: end;
+  white-space: nowrap;
+}
+
+@media (max-width: 860px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: calc(100% + 1px);
+    right: 1rem;
+    left: 1rem;
+    display: none;
+    grid-template-columns: 1fr;
+    padding: 0.75rem;
+    border: 1px solid var(--line);
+    border-radius: 0.75rem;
+    background: #0b1020;
+    box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.35);
+  }
+
+  .nav-links.open {
+    display: grid;
+  }
+
+  .nav-links .nav-cta {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .site-footer {
+    grid-template-columns: 1fr;
+  }
+
+  .fine-print {
+    white-space: normal;
+  }
+}
