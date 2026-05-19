@@ -73,7 +73,7 @@ On every push to `main`, the workflow will:
 3. Run `npm ci`.
 4. Run `npm run test`.
 5. Run `npm run build`.
-6. Deploy with Wrangler using the Cloudflare secrets.
+6. Deploy with the repo-installed Wrangler CLI using the Cloudflare secrets.
 
 You can also trigger it manually from the GitHub Actions tab with **Run workflow**.
 
@@ -108,6 +108,7 @@ npm run build && wrangler deploy
 
 - If GitHub Actions says no Cloudflare account is configured, confirm `CLOUDFLARE_ACCOUNT_ID` is set.
 - If Wrangler cannot authenticate, recreate the API token and confirm it has Workers deploy permissions.
+- If GitHub reports Node.js 20 action deprecation warnings, confirm the workflow is using `actions/checkout@v5`, `actions/setup-node@v5`, and the direct `npx wrangler deploy` command.
 - If the deployed site shows old content, confirm `npm run build` completed before `wrangler deploy`.
 - If a custom domain does not route to the Worker, confirm the custom domain or route in the Cloudflare dashboard.
 - If local SSR rejects `127.0.0.1`, preview with `localhost` instead.
