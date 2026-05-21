@@ -2,6 +2,10 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "canvassbuilder-website",
   "compatibility_date": "2026-05-18",
+  "routes": [
+    "canvassbuilder.com/*",
+    "www.canvassbuilder.com/*"
+  ],
   "main": "apps/canvassbuilder-site/src/worker.ts",
   "assets": {
     "directory": "dist/apps/canvassbuilder-site/browser",
