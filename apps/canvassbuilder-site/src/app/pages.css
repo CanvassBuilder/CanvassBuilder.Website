@@ -331,6 +331,40 @@
   line-height: 1;
 }
 
+.checkout-intro {
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+.checkout-intro h1 {
+  max-width: 18ch;
+  margin-right: auto;
+  margin-left: auto;
+  font-size: clamp(2.6rem, 5vw, 4.5rem);
+  line-height: 0.98;
+}
+
+.checkout-intro h1 + p {
+  margin-top: 1.75rem;
+}
+
+.checkout-table {
+  overflow: hidden;
+  border-radius: 0.75rem;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.28);
+}
+
+.checkout-table stripe-pricing-table {
+  display: block;
+}
+
+.checkout-help {
+  margin: 1.25rem 0 0;
+  color: var(--muted);
+  text-align: center;
+}
+
 @media (max-width: 980px) {
   .hero,
   .split-section,

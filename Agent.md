@@ -23,7 +23,7 @@ The website should present Canvass Builder as a modern SaaS platform for:
 ---
 # Site logo
 
-- https://canvassbuilder.com/logo_400x75.png
+- https://canvassbuilder.com/logo_400x75.svg
 
 ---
 # UI/UX Direction

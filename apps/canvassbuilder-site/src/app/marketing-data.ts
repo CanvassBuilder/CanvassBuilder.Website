@@ -8,7 +8,7 @@ export const siteCtas = {
   trialUrl: '#trial-placeholder',
   pricingUrl: '/pricing',
   demoUrl: 'mailto:patrick@canvassbuilder.com?subject=Canvass%20Builder%20demo',
-  checkoutUrl: '#stripe-checkout-placeholder',
+  checkoutUrl: '/checkout',
 };
 
 export const navLinks = [
@@ -131,9 +131,9 @@ export const faqs = [
       'No. The product is positioned for campaigns, advocacy groups, nonprofits, and any team that needs structured field outreach.',
   },
   {
-    question: 'Are the checkout links live?',
+    question: 'Can I purchase a plan online?',
     answer:
-      'Not yet. The site uses centralized placeholders so Stripe, demo, and trial URLs can be swapped in as soon as they are ready.',
+      'Yes. Select Buy Now on the pricing page to review available plans and check out securely through Stripe.',
   },
   {
     question: 'Does the website render for SEO?',
