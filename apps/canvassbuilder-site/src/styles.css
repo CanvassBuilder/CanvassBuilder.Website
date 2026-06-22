@@ -1,5 +1,4 @@
 @import 'tailwindcss';
-@import '@angular/material/prebuilt-themes/azure-blue.css';
 
 :root {
   color-scheme: dark;
@@ -45,8 +44,4 @@ button,
 input,
 textarea {
   font: inherit;
-}
-
-.mat-mdc-slider {
-  width: 100%;
 }

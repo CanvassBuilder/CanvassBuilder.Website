@@ -8,7 +8,6 @@ export const siteCtas = {
   trialUrl: '#trial-placeholder',
   pricingUrl: '/pricing',
   demoUrl: 'mailto:patrick@canvassbuilder.com?subject=Canvass%20Builder%20demo',
-  checkoutUrl: '/checkout',
 };
 
 export const navLinks = [
@@ -65,42 +64,6 @@ export const featureGroups = [
   },
 ];
 
-export const pricingTiers = [
-  {
-    name: 'Starter',
-    audience: 'Local campaigns and nonprofits',
-    contacts: 'Up to 5,000 contacts',
-    price: '$79',
-    cta: 'Start Free Trial',
-    href: siteCtas.trialUrl,
-    features: ['Unlimited users', 'Turf cutting', 'Surveys', 'Mobile canvassing', 'Smart lists'],
-  },
-  {
-    name: 'Growth',
-    audience: 'Active campaigns and advocacy teams',
-    contacts: 'Up to 50,000 contacts',
-    price: '$249',
-    cta: 'Buy Now',
-    href: siteCtas.checkoutUrl,
-    features: ['Team tracking', 'Advanced reporting', 'Smart list automation', 'Analytics dashboards', 'Priority onboarding'],
-  },
-  {
-    name: 'Professional',
-    audience: 'Large and statewide operations',
-    contacts: 'Up to 250,000 contacts',
-    price: '$699+',
-    cta: 'Book Demo',
-    href: siteCtas.demoUrl,
-    features: ['API access', 'Custom branding', 'Priority support', 'Multi-region support', 'Advanced reporting'],
-  },
-];
-
-export const estimatorSteps = [
-  { contacts: '5,000', price: '$79/mo', plan: 'Starter' },
-  { contacts: '50,000', price: '$249/mo', plan: 'Growth' },
-  { contacts: '250,000', price: '$699+/mo', plan: 'Professional' },
-];
-
 export const industries = [
   {
     name: 'Political Campaigns',
@@ -133,7 +96,7 @@ export const faqs = [
   {
     question: 'Can I purchase a plan online?',
     answer:
-      'Yes. Select Buy Now on the pricing page to review available plans and check out securely through Stripe.',
+      'Yes. Choose a plan on the pricing page and subscribe securely through Stripe.',
   },
   {
     question: 'Does the website render for SEO?',

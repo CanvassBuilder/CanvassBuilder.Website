@@ -1,14 +1,11 @@
-import { Component, computed, CUSTOM_ELEMENTS_SCHEMA, inject, signal } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { MatSliderModule } from '@angular/material/slider';
 import {
   blogPosts,
-  estimatorSteps,
   faqs,
   featureGroups,
   industries,
-  pricingTiers,
   siteCtas,
 } from './marketing-data';
 import { SeoService } from './seo.service';
@@ -155,7 +152,6 @@ export class FeaturesPage {
 }
 
 @Component({
-  imports: [MatSliderModule],
   template: `
     <main class="page compact">
       <section class="section-heading intro">
@@ -166,86 +162,13 @@ export class FeaturesPage {
           through Stripe when you are ready.
         </p>
       </section>
-      <section class="pricing-grid">
-        @for (tier of tiers; track tier.name) {
-          <article class="price-card">
-            <p class="kicker">{{ tier.audience }}</p>
-            <h2>{{ tier.name }}</h2>
-            <p class="contacts">{{ tier.contacts }}</p>
-            <p class="price"><span>{{ tier.price }}</span>/mo</p>
-            <ul>
-              @for (feature of tier.features; track feature) {
-                <li>{{ feature }}</li>
-              }
-            </ul>
-            <a class="button primary full" [href]="tier.href">{{ tier.cta }}</a>
-          </article>
-        }
-      </section>
-      <section class="estimator">
-        <div>
-          <p class="eyebrow">Estimator</p>
-          <h2>How many contacts do you manage?</h2>
-          <p>
-            {{ selected().contacts }} contacts points to the
-            <strong>{{ selected().plan }}</strong> plan at
-            <strong>{{ selected().price }}</strong>.
-          </p>
-        </div>
-        @defer (on immediate) {
-          <mat-slider min="0" max="2" step="1">
-            <input matSliderThumb [value]="step()" (valueChange)="step.set($event)" />
-          </mat-slider>
-        } @placeholder {
-          <input
-            class="range-placeholder"
-            type="range"
-            min="0"
-            max="2"
-            step="1"
-            value="1"
-            aria-label="Pricing estimator loading"
-            disabled
-          />
-        }
-      </section>
-    </main>
-  `,
-  styleUrl: './pages.css',
-})
-export class PricingPage {
-  protected readonly tiers = pricingTiers;
-  protected readonly step = signal(1);
-  protected readonly selected = computed(() => estimatorSteps[this.step()]);
-
-  constructor() {
-    inject(SeoService).setPage({
-      title: 'Pricing | Canvass Builder',
-      description:
-        'Compare Canvass Builder pricing tiers for local campaigns, advocacy organizations, and large field operations.',
-      path: '/pricing',
-    });
-  }
-}
-
-@Component({
-  template: `
-    <main class="page compact checkout-page">
-      <section class="section-heading intro checkout-intro">
-        <p class="eyebrow">Secure checkout</p>
-        <h1>Choose the plan that fits your field program.</h1>
-        <p>
-          Select a plan below to continue to Stripe's secure checkout. You can review
-          the price and billing details before completing your purchase.
-        </p>
-      </section>
-      <section class="checkout-table" aria-label="Canvass Builder plans and checkout">
+      <section class="stripe-table" aria-label="Canvass Builder plans and checkout">
         <stripe-pricing-table
           pricing-table-id="prctbl_1TiSZELjNduw5DivPddLcsbJ"
           publishable-key="pk_test_51N3V2ALjNduw5Div2LE2UEHAg4LX5A2vZDVizG05tdhMsykW1UphYp0MQNNk2kMM5zqQ3o8HIQ2EioNL3PNEK89J00WoAuAtx2"
         ></stripe-pricing-table>
       </section>
-      <p class="checkout-help">
+      <p class="pricing-help">
         Questions before purchasing?
         <a class="text-link" href="mailto:patrick@canvassbuilder.com?subject=Canvass%20Builder%20pricing%20question">Contact us</a>.
       </p>
@@ -254,13 +177,13 @@ export class PricingPage {
   styleUrl: './pages.css',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class CheckoutPage {
+export class PricingPage {
   constructor() {
     inject(SeoService).setPage({
-      title: 'Checkout | Canvass Builder',
+      title: 'Pricing | Canvass Builder',
       description:
-        'Choose a Canvass Builder plan and complete your purchase securely with Stripe.',
-      path: '/checkout',
+        'Compare Canvass Builder pricing tiers for local campaigns, advocacy organizations, and large field operations.',
+      path: '/pricing',
     });
   }
 }
